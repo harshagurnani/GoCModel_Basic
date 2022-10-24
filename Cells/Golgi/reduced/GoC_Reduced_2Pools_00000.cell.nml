@@ -1,23 +1,23 @@
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="GoC_2Pools_00177">
-    <include href="../../Mechanisms/Golgi_Na.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_NaR.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_NaP.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_KA.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_SK2.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_KM.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_KV.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_BK.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_CaHVA.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_CaLVA.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_HCN1f.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_HCN1s.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_HCN2f.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_HCN2s.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_lkg.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_CALC.nml"/>
-    <include href="../../Mechanisms/Golgi_CALC2.nml"/>
-    <include href="../../Mechanisms/GIRK.channel.nml"/>
-    <cell2CaPools id="GoC_2Pools_00177">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="GoC_Reduced_2Pools_00000">
+    <include href="../../../Mechanisms/Golgi_Na.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_NaR.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_NaP.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_KA.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_SK2.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_KM.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_KV.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_BK.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_CaHVA.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_CaLVA.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN1f.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN1s.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN2f.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN2s.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_lkg.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_CALC.nml"/>
+    <include href="../../../Mechanisms/Golgi_CALC2.nml"/>
+    <include href="../../../Mechanisms/GIRK.channel.nml"/>
+    <cell2CaPools id="GoC_Reduced_2Pools_00000">
         <morphology id="reduced_Golgi10comp">
             <segment id="0" name="Soma">
                 <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="20.0"/>
@@ -148,26 +148,26 @@
                 <include segmentGroup="only_axon"/>
             </segmentGroup>
         </morphology>
-        <biophysicalProperties2CaPools id="biophys_GoC_2Pools_00177">
+        <biophysicalProperties2CaPools id="biophys_GoC_Reduced_2Pools_00000">
             <membraneProperties2CaPools>
-                <channelDensity id="Leak" ionChannel="LeakConductance" condDensity="0.0205343769357 mS_per_cm2" erev="-55 mV" ion="non_specific"/>
-                <channelDensity id="Golgi_Na_soma_group" ionChannel="GolgiNa" condDensity="41.9846142277 mS_per_cm2" erev="87.39 mV" segmentGroup="soma_group" ion="na"/>
-                <channelDensity id="Golgi_NaP_soma_group" ionChannel="GolgiNaP" condDensity="0.193768851273 mS_per_cm2" erev="87.39 mV" segmentGroup="soma_group" ion="na"/>
-                <channelDensity id="Golgi_NaR_soma_group" ionChannel="GolgiNaR" condDensity="1.83252539272 mS_per_cm2" erev="87.39 mV" segmentGroup="soma_group" ion="na"/>
-                <channelDensity id="Golgi_KA_soma_group" ionChannel="GolgiKA" condDensity="7.79334768388 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
-                <channelDensity id="Golgi_KAHP_soma_group" ionChannel="GolgiSK2" condDensity="41.2995338808 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
-                <channelDensity id="Golgi_KV_soma_group" ionChannel="GolgiKV" condDensity="29.2050743665 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
-                <channelDensity id="Golgi_KM_soma_group" ionChannel="GolgiKM" condDensity="1.05089340972 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
-                <channelDensity id="Golgi_BK_soma_group" ionChannel="GolgiBK" condDensity="2.72440960347 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
-                <channelDensity id="Golgi_hcn1f_soma_group" ionChannel="GolgiHCN1f" condDensity="0.0426158563798 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
-                <channelDensity id="Golgi_hcn1s_soma_group" ionChannel="GolgiHCN1s" condDensity="0.0539810886314 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
-                <channelDensity id="Golgi_hcn2f_soma_group" ionChannel="GolgiHCN2f" condDensity="0.0814393550603 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
-                <channelDensity id="Golgi_hcn2s_soma_group" ionChannel="GolgiHCN2s" condDensity="0.0769550215021 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
-                <channelDensityNernst id="Golgi_Ca_HVA_soma_group" ionChannel="GolgiCaHVA" condDensity="0.512587994455 mS_per_cm2" segmentGroup="soma_group" ion="ca"/>
+                <channelDensity id="Leak" ionChannel="LeakConductance" condDensity="0.021863212359 mS_per_cm2" erev="-55 mV" ion="non_specific"/>
+                <channelDensity id="Golgi_Na_soma_group" ionChannel="GolgiNa" condDensity="48.8617571135 mS_per_cm2" erev="87.39 mV" segmentGroup="soma_group" ion="na"/>
+                <channelDensity id="Golgi_NaP_soma_group" ionChannel="GolgiNaP" condDensity="0.185256628056 mS_per_cm2" erev="87.39 mV" segmentGroup="soma_group" ion="na"/>
+                <channelDensity id="Golgi_NaR_soma_group" ionChannel="GolgiNaR" condDensity="2.01529067714 mS_per_cm2" erev="87.39 mV" segmentGroup="soma_group" ion="na"/>
+                <channelDensity id="Golgi_KA_soma_group" ionChannel="GolgiKA" condDensity="6.67881375904 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
+                <channelDensity id="Golgi_KAHP_soma_group" ionChannel="GolgiSK2" condDensity="39.0342773286 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
+                <channelDensity id="Golgi_KV_soma_group" ionChannel="GolgiKV" condDensity="31.0227814315 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
+                <channelDensity id="Golgi_KM_soma_group" ionChannel="GolgiKM" condDensity="1.05835764523 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
+                <channelDensity id="Golgi_BK_soma_group" ionChannel="GolgiBK" condDensity="3.47012760094 mS_per_cm2" erev="-84.69 mV" segmentGroup="soma_group" ion="k"/>
+                <channelDensity id="Golgi_hcn1f_soma_group" ionChannel="GolgiHCN1f" condDensity="0.041420721164 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
+                <channelDensity id="Golgi_hcn1s_soma_group" ionChannel="GolgiHCN1s" condDensity="0.0585119327659 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
+                <channelDensity id="Golgi_hcn2f_soma_group" ionChannel="GolgiHCN2f" condDensity="0.0809246374321 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
+                <channelDensity id="Golgi_hcn2s_soma_group" ionChannel="GolgiHCN2s" condDensity="0.0762701286024 mS_per_cm2" erev="-20 mV" segmentGroup="soma_group" ion="h"/>
+                <channelDensityNernst id="Golgi_Ca_HVA_soma_group" ionChannel="GolgiCaHVA" condDensity="0.499594843413 mS_per_cm2" segmentGroup="soma_group" ion="ca"/>
                 <spikeThresh value="0 mV"/>
                 <specificCapacitance value="1.0 uF_per_cm2"/>
                 <initMembPotential value="-60 mV"/>
-                <channelDensityNernstCa2 id="Golgi_Ca_LVA_soma_group" ionChannel="GolgiCaLVA" condDensity="0.2747357173 mS_per_cm2" segmentGroup="soma_group" ion="ca2"/>
+                <channelDensityNernstCa2 id="Golgi_Ca_LVA_soma_group" ionChannel="GolgiCaLVA" condDensity="0.279172503808 mS_per_cm2" segmentGroup="soma_group" ion="ca2"/>
             </membraneProperties2CaPools>
             <intracellularProperties2CaPools>
                 <species segmentGroup="soma_group" id="ca" concentrationModel="Golgi_CALC" ion="ca" initialConcentration="5e-11mol_per_cm3" initialExtConcentration="2.0E-6 mol_per_cm3"/>
