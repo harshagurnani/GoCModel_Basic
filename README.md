@@ -27,7 +27,7 @@ To construct new GoC files using one of the morphologies and different parameter
 
 
 ##  Known Issues :construction_worker:
-- Using reduced morphology with current channel densities causes model to fail (Vm goes to 80mV after around 500 ms -> which channel is unstable? Density adjustment for morphology?)
+- Using reduced or full morphology with current channel densities causes model to fail (Vm goes to 80mV after around 500 ms -> which channel is unstable? Density adjustment for morphology?)
 - Constructing network with a Population that has ComponentType  from class Cell2CaPools -> LEMS file fails to be generated
 
 
