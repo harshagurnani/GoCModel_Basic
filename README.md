@@ -18,15 +18,14 @@ To construct new GoC files using one of the morphologies and different parameter
 
 ## Generating networks
 
-
+- [simulate_one_cell.py](Network/simulate_one_cell.py) generates a network with 1 cell (from specified GoC model). For example use, see [example_gen_onegoc.ipynb](Network/example_gen_onegoc.ipynb)
+- [generate_simple_network.py](Network/generate_simple_network.py) generates network of ~40 cells, with electrical connectivity and background inputs (low frequency Poisson spiketrains). For example use, see [this nb](Network/example_gen_network.ipynb)
 
 ## Utils
 
 [PythonUtils](PythonUtils) has function definitions for generating connectivity (electrical or chemical)
 
 
-##  Known Issues
-
-!x Known Issues
+##  Known Issues :construction_worker:
 - Using reduced morphology with current channel densities causes model to fail (Vm goes to 80mV after around 500 ms -> which channel is unstable? Density adjustment for morphology?)
 - Constructing network with a Population that has ComponentType  from class Cell2CaPools -> LEMS file fails to be generated
