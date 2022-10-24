@@ -1,5 +1,5 @@
 # GoCModel_Basic
- network of gocs with low frequency background inputs
+Basic code to generate network of electrically coupled cerebellar Golgi cells with low frequency background inputs
 
 ## Model descriptions
 Channel and synapse mechanisms are in [Mechanisms](Mechanisms)
