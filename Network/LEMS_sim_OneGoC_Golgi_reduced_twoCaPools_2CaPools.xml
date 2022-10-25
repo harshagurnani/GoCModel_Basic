@@ -1,0 +1,45 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.3.15 (libNeuroML v0.2.47)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="sim_OneGoC_Golgi_reduced_twoCaPools_2CaPools"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="OneGoC_Golgi_reduced_twoCaPools_2CaPools.net.nml"/>
+    <Include file="../Cells/Golgi/Golgi_reduced_twoCaPools.cell.nml"/>
+    <Include file="../../Mechanisms/Golgi_Na.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_NaR.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_NaP.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_KA.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_SK2.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_KM.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_KV.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_BK.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_CaHVA.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_CaLVA.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN1f.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN1s.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN2f.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN2s.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_lkg.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_CALC.nml"/>
+    <Include file="../../Mechanisms/Golgi_CALC2.nml"/>
+   
+    <Simulation id="sim_OneGoC_Golgi_reduced_twoCaPools_2CaPools" length="1000ms" step="0.001ms" target="OneGoC_Golgi_reduced_twoCaPools_2CaPools" seed="100">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <OutputFile id="Volts_file" fileName="../Data_OneGoC/sim_OneGoC_Golgi_reduced_twoCaPools_2CaPools.v.dat">
+            <OutputColumn id="0" quantity="Golgi_10comp_all_channels_twoCaPoolsPop/0/Golgi_10comp_all_channels_twoCaPools/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>

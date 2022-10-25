@@ -1,0 +1,48 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.3.15 (libNeuroML v0.2.47)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="sim_V2_OneGoC_GoC"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="OneGoC_GoC.net.nml"/>
+    <Include file="../Cells/Golgi/GoC.cell.nml"/>
+    <Include file="../../Mechanisms/Golgi_Na.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_NaR.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_NaP.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_KA.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_SK2.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_KM.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_KV.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_BK.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_CaHVA.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_CaLVA.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN1f.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN1s.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN2f.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_HCN2s.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_lkg.channel.nml"/>
+    <Include file="../../Mechanisms/Golgi_CALC.nml"/>
+   
+    <Simulation id="sim_V2_OneGoC_GoC" length="1000ms" step="0.0025ms" target="OneGoC_GoC" seed="100">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <OutputFile id="Volts_file" fileName="../Data_OneGoC/sim_V2_OneGoC_GoC.v.dat">
+            <OutputColumn id="0" quantity="GoClPop/0/GoCl/v"/> 
+        </OutputFile>
+        
+        <EventOutputFile id="Events_file" fileName="../Data_OneGoC/sim_V2_OneGoC_GoC.spikes.dat" format="ID_TIME">
+            <EventSelection id="0" select="GoClPop/0/GoCl" eventPort="spike"/> 
+        </EventOutputFile>
+        
+    </Simulation>
+
+</Lems>
