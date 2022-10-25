@@ -3,28 +3,28 @@
          xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
          id="Golgi_10comp_all_channels_twoCaPools">
 
-  	<include href="../../Mechanisms/Golgi_Na.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_NaR.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_NaP.channel.nml"/>
+  	<include href="../../../Mechanisms/Golgi_Na.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_NaR.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_NaP.channel.nml"/>
 
-    <include href="../../Mechanisms/Golgi_KA.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_SK2.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_KM.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_KV.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_BK.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_KA.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_SK2.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_KM.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_KV.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_BK.channel.nml"/>
 
-    <include href="../../Mechanisms/Golgi_CaHVA.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_CaLVA.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_CaHVA.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_CaLVA.channel.nml"/>
 
-    <include href="../../Mechanisms/Golgi_HCN1f.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_HCN1s.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_HCN2f.channel.nml"/>
-    <include href="../../Mechanisms/Golgi_HCN2s.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN1f.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN1s.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN2f.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_HCN2s.channel.nml"/>
 
-    <include href="../../Mechanisms/Golgi_lkg.channel.nml"/>
+    <include href="../../../Mechanisms/Golgi_lkg.channel.nml"/>
 
-    <include href="../../Mechanisms/Golgi_CALC.nml"/>
-	  <include href="../../Mechanisms/Golgi_CALC2.nml"/>
+    <include href="../../../Mechanisms/Golgi_CALC.nml"/>
+	  <include href="../../../Mechanisms/Golgi_CALC2.nml"/>
 
     <cell2CaPools id="Golgi_10comp_all_channels_twoCaPools">
 

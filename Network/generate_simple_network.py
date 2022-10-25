@@ -15,7 +15,7 @@ import math
 
 import initialise_network_params as inp
 
-def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, run=False, goc_fileid='GoC_', dend_id = [1,2,5] ):
+def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, run=False, goc_fileid='GoC_', has2Pools=False, dend_id = [1,2,5] ):
 	"""
 	Create simple network of GJ coupled GoCs, with low frequency background inputs
 
@@ -60,7 +60,10 @@ def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, ru
 		gocID = goc_fileid+format(pid, '05d')
 		goc_type.append( gocID )
 		goc_filename = '../Cells/Golgi/{}.cell.nml'.format( goc_type[ctr] )
-		goc_type[ctr] = pynml.read_neuroml2_file( goc_filename ).cells[0]
+		if has2Pools:
+			goc_type[ctr] = pynml.read_neuroml2_file( goc_filename ).cell2_ca_poolses[0]
+		else:
+			goc_type[ctr] = pynml.read_neuroml2_file( goc_filename ).cells[0]
 		net_doc.includes.append( nml.IncludeType( href=goc_filename ) )
 		ctr += 1
 
@@ -193,6 +196,7 @@ def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, ru
 	ls.include_lems_file( '../Mechanisms/inputGenerators.xml')
 
 	# Specify outputs
+	'''
 	eof0 = 'Events_file'
 	ls.create_event_output_file(eof0, datadir+"%s.spikes.dat"%simid,format='ID_TIME')
 	ctr=0
@@ -200,6 +204,7 @@ def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, ru
 		for jj in range( goc_pop[pid].size):
 			ls.add_selection_to_event_output_file( eof0, ctr, '{}/{}/{}'.format( goc_pop[pid].id, jj, goc_type[pid].id), 'spike' )
 			ctr += 1
+	'''
 
 
 

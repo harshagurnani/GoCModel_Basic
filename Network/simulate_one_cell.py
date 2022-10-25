@@ -73,9 +73,11 @@ def create_LEMS_sim( duration=1000, dt=0.025, goc_path='../Cells/Golgi/', goc_fi
 	ls.include_neuroml2_file( net_filename)							#Network NML2 file
 
 	# Specify outputs
+	'''
 	eof0 = 'Events_file'
 	ls.create_event_output_file(eof0, datadir+"%s.spikes.dat"%simid,format='ID_TIME')
 	ls.add_selection_to_event_output_file( eof0, 0, '{}/{}/{}'.format( goc_pop.id, 0, goc_type.id), 'spike' )
+	'''
 	of0 = 'Volts_file'
 	ls.create_output_file(of0, datadir+"%s.v.dat"%simid)
 	ls.add_column_to_output_file(of0, 0, '{}/{}/{}/v'.format( goc_pop.id, 0, goc_type.id))
