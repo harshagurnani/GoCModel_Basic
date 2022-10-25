@@ -15,7 +15,7 @@ import math
 import network_utils as nu
 
 
-def create_LEMS_sim( duration=1000, dt=0.025, goc_path='../Cells/Golgi/', goc_file='GoC', has2Pools=False, run=False, seed=100 ):
+def create_LEMS_sim( duration=1000, dt=0.025, goc_path='../Cells/Golgi/', goc_file='Golgi_reduced_twoCaPools', has2Pools=True, run=False, seed=100 ):
 	"""
 	Create LEMS simulation with single cell
 
