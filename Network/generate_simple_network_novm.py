@@ -209,6 +209,7 @@ def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, ru
 
 
 
+	'''
 	of0 = 'Volts_file'
 	ls.create_output_file(of0, datadir+"%s.v.dat"%simid)
 	ctr=0
@@ -216,6 +217,8 @@ def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, ru
 		for jj in range( goc_pop[pid].size ):
 			ls.add_column_to_output_file(of0, ctr, '{}/{}/{}/v'.format( goc_pop[pid].id, jj, goc_type[pid].id))
 			ctr +=1
+
+	'''
 
 	#Create Lems file to run
 	lems_simfile = ls.save_to_file()

@@ -14,9 +14,9 @@ import sys
 from pathlib import Path
 import initialize_cell_params as icp
 
-def create_GoC( runid, usefile='cellparams_file.pkl', morpho_fname='Golgi_reduced_twoCaPools.cell.nml', has2Pools=True, girk=False ):
+def create_GoC( runid, usefile='cellparams_file.pkl', morpho_fname='Golgi_reduced_1Pool.cell.nml', has2Pools=False, girk=False ):
 	"""
-	Create GoCs with different channel densities in specified morphology with 2 Ca Pools
+	Create GoCs with different channel densities in specified morphology
 
 	Parameters:
 	===========
@@ -42,12 +42,12 @@ def create_GoC( runid, usefile='cellparams_file.pkl', morpho_fname='Golgi_reduce
 
 	# Creating document for cell
 	if girk:
-		gocID = 'GoC_reduced_2Pools_wGIRK_'+format(runid, '05d')
+		gocID = 'GoC_reduced_wGIRK_'+format(runid, '05d')
 	else:
-		gocID = 'GoC_reduced_2Pools_'+format(runid, '05d')
-	goc = nml.Cell2CaPools( id=gocID )		#--------simid
+		gocID = 'GoC_reduced_'+format(runid, '05d')
+	goc = nml.Cell( id=gocID )		#--------simid
 	cell_doc = nml.NeuroMLDocument( id=gocID )
-	cell_doc.cell2_ca_poolses.append( goc )
+	cell_doc.cells.append( goc )
 
 
 	### Load morphology
@@ -60,7 +60,7 @@ def create_GoC( runid, usefile='cellparams_file.pkl', morpho_fname='Golgi_reduce
 	#cell_doc.includes.append( nml.IncludeType( href=morpho_fname ) )
 	goc.morphology = morpho
 
-	### ---------- Include Channel NML files
+	### ---------- Channels
 	na_fname 	= '../../../Mechanisms/Golgi_Na.channel.nml'
 	cell_doc.includes.append( nml.IncludeType( href=na_fname) )
 	nar_fname 	= '../../../Mechanisms/Golgi_NaR.channel.nml'
@@ -107,20 +107,28 @@ def create_GoC( runid, usefile='cellparams_file.pkl', morpho_fname='Golgi_reduce
 	girk_fname = '../../../Mechanisms/GIRK.channel.nml'
 	cell_doc.includes.append( nml.IncludeType( href=girk_fname) )
 
-	### ------Biophysical Properties
-	biophys = nml.BiophysicalProperties2CaPools( id='biophys_'+gocID)
-	goc.biophysical_properties2_ca_pools = biophys
 
 	goc_2pools_fname = 'Golgi_reduced_twoCaPools.cell.nml'
-
+	goc_1pool_fname = 'Golgi_reduced_1Pool.cell.nml'
+	### ------Biophysical Properties
+	biophys = nml.BiophysicalProperties( id='biophys_'+gocID)
+	goc.biophysical_properties = biophys
 
 	# Inproperties
-	intracellular = pynml.read_neuroml2_file( goc_2pools_fname).cell2_ca_poolses[0].biophysical_properties2_ca_pools.intracellular_properties2_ca_pools
-	biophys.intracellular_properties2_ca_pools = intracellular
+	'''
+	res = nml.Resistivity( p["ra"] )		# --------- "0.1 kohm_cm"
+	ca_species = nml.Species( id="ca", ion="ca", concentration_model=calc.id, initial_concentration ="5e-5 mM", initial_ext_concentration="2 mM" )
+	ca2_species = nml.Species( id="ca2", ion="ca2", concentration_model="Golgi_CALC2", initial_concentration ="5e-5 mM", initial_ext_concentration="2 mM" )
+	intracellular = nml.IntracellularProperties(  )
+	intracellular.resistivities.append( res )
+	intracellular.species.append( ca_species )
+	'''
+	intracellular = pynml.read_neuroml2_file( goc_1pool_fname).cells[0].biophysical_properties.intracellular_properties
+	biophys.intracellular_properties = intracellular
 
 	# Membrane properties ------- cond
-	memb = nml.MembraneProperties2CaPools()
-	biophys.membrane_properties2_ca_pools = memb
+	memb = nml.MembraneProperties()
+	biophys.membrane_properties = memb
 
 	#pynml.read_neuroml2_file(leak_fname).ion_channel[0].id -> can't read ion channel passive
 	chan_leak = nml.ChannelDensity( ion_channel="LeakConductance",
@@ -234,18 +242,15 @@ def create_GoC( runid, usefile='cellparams_file.pkl', morpho_fname='Golgi_reduce
 											segment_groups="soma_group"
 										)
 	memb.channel_density_nernsts.append( chan_hva)
-
-	# connect to other ca pool
-	chan_lva  = nml.ChannelDensityNernstCa2( 	ion_channel=pynml.read_neuroml2_file(calva_fname).ion_channel[0].id,
+	chan_lva  = nml.ChannelDensityNernst( 	ion_channel=pynml.read_neuroml2_file(calva_fname).ion_channel[0].id,
 											cond_density=p["calva_cond"],
 											ion="ca2",
 											id="Golgi_Ca_LVA_soma_group",
 											segment_groups="soma_group"
 										)
-	memb.channel_density_nernst_ca2s.append( chan_lva)
+	memb.channel_density_nernsts.append( chan_lva)
 
-	#Add GIRK  -> into apical dendrites!
-	"""
+	#Add GIRK
 	if girk:
 		girk_density = "0.15 mS_per_cm2"
 	else:
@@ -254,11 +259,10 @@ def create_GoC( runid, usefile='cellparams_file.pkl', morpho_fname='Golgi_reduce
 									cond_density=girk_density,
 									erev="-84.69 mV",
 									ion="k",
-									id="GIRK_apical_dendrite_group",
+									id="GIRK_dendrite_group",
 									segment_groups="apical_dendrite_group"
 								  )
 	memb.channel_densities.append( chan_girk)
-	"""
 
 
 	memb.spike_threshes.append(nml.SpikeThresh("0 mV"))
