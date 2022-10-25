@@ -28,7 +28,9 @@ To construct new GoC files using one of the morphologies and different parameter
 
 ##  Known Issues :construction_worker:
 - Using reduced or full morphology with current channel densities causes model to fail (Vm goes to 80mV after around 500 ms -> which channel is unstable? Density adjustment for morphology?)
+  - :white_check_mark: Fix: NaT reaches very small time constants at spike -> use much smaller integration dt (0.001 ms or lower)
 - Constructing network with a Population that has ComponentType  from class Cell2CaPools -> LEMS file fails to be generated
+  - :small_blue_diamond: Diagnosis: Cannot create events file using event port 'spike' - not supported for class Cell2CaPools?
 
 
 ## Requirements
