@@ -37,7 +37,7 @@
     <include href="../../Mechanisms/Golgi_CALC2.nml"/> 
     <!-- Note, no <cells> element...  -->
     
-    <cell id="GoCl_2Pools" >
+    <cell2CaPools id="GoCl_2Pools" >
 
         <notes>A Single Compartment Cerebellar Golgi cell for testing</notes>
 
@@ -158,9 +158,9 @@
             
         </morphology>
 
-        <biophysicalProperties id="bio_GoC">
+        <biophysicalProperties2CaPools id="bio_GoC">
 
-            <membraneProperties> 
+            <membraneProperties2CaPools> 
 
 				<!--Leak -->
 				<channelDensity condDensity="0.021 mS_per_cm2" id="Leak" ionChannel="LeakConductance" erev="-55.0 mV" ion="non_specific"/>
@@ -206,20 +206,20 @@
                 <specificCapacitance value="1.0 uF_per_cm2"/>
                 <initMembPotential value="-60.0 mV"/>
 
-            </membraneProperties>
+            </membraneProperties2CaPools>
 
-            <intracellularProperties>
+            <intracellularProperties2CaPools>
 
                 <resistivity value="0.1 kohm_cm"/>  <!-- Used for specific axial resistance, not nec for single segment model that is isolpotential -->
 				<species segmentGroup="soma_group" id="ca" ion="ca" concentrationModel="Golgi_CALC" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
 
                 <species segmentGroup="soma_group" id="ca2" ion="ca2" concentrationModel="Golgi_CALC2" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
-            </intracellularProperties>
+            </intracellularProperties2CaPools>
 
-        </biophysicalProperties>
+        </biophysicalProperties2CaPools>
 
 
-    </cell>
+    </cell2CaPools>
 	<network id="network" type="networkWithTemperature"  temperature="23 degC">
         <population id="Golgi" component="GoCl_2Pools" size="1"/>
     </network>
