@@ -38,7 +38,7 @@ def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, ru
 	if not os.path.exists(datadir):
 		os.makedirs(datadir)
 
-	simid = 'GoCNet_'+format(runid,'05d')+'_'+hom_str
+	simid = 'Net_'+goc_fileid+format(runid,'05d')+'_'+hom_str
 
 	net = nml.Network( id=simid, type="networkWithTemperature" , temperature="23 degC" )
 	net_doc = nml.NeuroMLDocument( id=net.id )
