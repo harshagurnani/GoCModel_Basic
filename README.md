@@ -31,7 +31,8 @@ To construct new GoC files using one of the morphologies and different parameter
   - :white_check_mark: Fix: NaT reaches very small time constants at spike -> use much smaller integration dt (0.001 ms or lower)
 - Constructing network with a Population that has ComponentType  from class Cell2CaPools -> LEMS file fails to be generated
   - :small_blue_diamond: Diagnosis: Cannot create events file using event port 'spike' - not supported for class Cell2CaPools?
-- For reduced morphology (Cells/Golgi/reduced), synapses can only be inserted at location=0.5 along dendrite.
+- For some morphology?, synapses can only be inserted at location=0.5 along dendrite. 
+  - :small_blue_diamond: In that case, comment line 156 and uncomment 158  that create connectionWD instances for each background input and insert them into dendrites (in [generate _simple_network.py](Network/generate_simple_network.py) )
 
 
 ## Requirements
