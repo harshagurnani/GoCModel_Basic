@@ -152,8 +152,10 @@ def create_GoC_network( duration=1000, dt=0.025, seed=100, runid=0, hom=True, ru
 				if Inp["syn_loc"] == 'soma':
 					conn = nml.ConnectionWD(id=ctr, pre_cell_id='../{}/{}/{}'.format(inputBG_pop[input].id, pre, inputBG[input].id), post_cell_id='../{}/{}/{}'.format(goc_pop[jj].id, goc, goc_type[jj].id), post_segment_id='0', post_fraction_along="0.5", weight=Inp["conn_wt"][jj][syn], delay="0 ms")	#on soma
 				elif Inp["syn_loc"] == 'dend':
-					#conn = nml.ConnectionWD(id=ctr, pre_cell_id='../{}/{}/{}'.format(inputBG_pop[input].id, pre, inputBG[input].id), post_cell_id='../{}/{}/{}'.format(goc_pop[jj].id, goc, goc_type[jj].id), post_segment_id=dend_id[int(Inp["conn_loc"][jj][0,syn])], post_fraction_along=dend_id[int(Inp["conn_loc"][jj][1,syn])], weight=Inp["conn_wt"][jj][syn], delay="0 ms")	#on dend
-					conn = nml.ConnectionWD(id=ctr, pre_cell_id='../{}/{}/{}'.format(inputBG_pop[input].id, pre, inputBG[input].id), post_cell_id='../{}/{}/{}'.format(goc_pop[jj].id, goc, goc_type[jj].id), post_segment_id=dend_id[int(Inp["conn_loc"][jj][0,syn])], post_fraction_along=0.5, weight=Inp["conn_wt"][jj][syn], delay="0 ms")	#on dend
+					### Use this if different fractionAlong works ---
+					conn = nml.ConnectionWD(id=ctr, pre_cell_id='../{}/{}/{}'.format(inputBG_pop[input].id, pre, inputBG[input].id), post_cell_id='../{}/{}/{}'.format(goc_pop[jj].id, goc, goc_type[jj].id), post_segment_id=dend_id[int(Inp["conn_loc"][jj][0,syn])], post_fraction_along=Inp["conn_loc"][jj][1,syn], weight=Inp["conn_wt"][jj][syn], delay="0 ms")	#on dend
+					### Else use this ---
+					#conn = nml.ConnectionWD(id=ctr, pre_cell_id='../{}/{}/{}'.format(inputBG_pop[input].id, pre, inputBG[input].id), post_cell_id='../{}/{}/{}'.format(goc_pop[jj].id, goc, goc_type[jj].id), post_segment_id=dend_id[int(Inp["conn_loc"][jj][0,syn])], post_fraction_along=0.5, weight=Inp["conn_wt"][jj][syn], delay="0 ms")	#on dend
 				BG_Proj[input][jj].connection_wds.append(conn)
 				ctr+=1
 
