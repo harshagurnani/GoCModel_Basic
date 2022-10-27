@@ -6,7 +6,7 @@ Channel and synapse mechanisms are in [Mechanisms](Mechanisms)
 
 Cell descriptions are in [Cells/Golgi](Cells/Golgi)
 
-- [/solinas](Cells/Golgi/solinas) includes the original Solinas morphology with soma, 3 dendrites and long axon compartment. These are also the morphologies of [GoC.cell.nml](Cells/Golgi/GoC.cell.nml) and [GoC_2Pools.cell.nml](Cells/Golgi/GoC_2Pools.cell.nml)
+- [/solinas](Cells/Golgi/solinas) includes the original Solinas morphology with soma, 3 dendrites and long axon compartment (see [Solinas et al, 2007](https://www.frontiersin.org/articles/10.3389/neuro.03.002.2007/full) or on [ModelDB](https://senselab.med.yale.edu/ModelDB/showmodel.cshtml?model=112685) ). These are also the morphologies of [GoC.cell.nml](Cells/Golgi/GoC.cell.nml) and [GoC_2Pools.cell.nml](Cells/Golgi/GoC_2Pools.cell.nml)
 - [/reduced](Cells/Golgi/reduced) includes 10 compartment reduced models, optimised by E. Piasini (see [Piasini, 2015](https://discovery.ucl.ac.uk/id/eprint/1464128/1/eugenio_piasini_phd_thesis.pdf)).
 - An example of full reconstructed morphology is present [here](Cells/Golgi/Golgi_040408_C1.cell.nml)
 
