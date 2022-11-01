@@ -2,9 +2,9 @@ name: Test model generation
 
 on:
   push:
-    branches: [ master, development ]
+    branches: [ main, development ]
   pull_request:
-    branches: [ master, development ]
+    branches: [ main, development ]
 
 jobs:
   build-linux:
@@ -27,7 +27,13 @@ jobs:
         pip install pyneuroml
 
 
-    - name: Test single cell
+    - name: Test simulate_one_cell
       run: |
         cd Network
         python simulate_one_cell.py
+        ls -alth
+
+    - name: Test simulate_one_cell_write_spike
+      run: |
+        python simulate_one_cell_write_spike.py
+        ls -alth
