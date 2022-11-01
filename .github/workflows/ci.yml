@@ -24,6 +24,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pip install scipy
         pip install pyneuroml
 
 
