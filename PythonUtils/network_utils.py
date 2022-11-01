@@ -25,7 +25,7 @@ def locate_GoC( nGoC=0, volume=[350,350,80], density=4607, seed=-1 ):
     seed:   Simulation seed. If -1, then seed is not controlled. For different fns, this seed is used differently - but deterministically - to set up seed for the random number generators
     """
     if seed != -1:
-		np.random.seed(seed+1000)
+        np.random.seed(seed+1000)
     x,y,z = volume
     if nGoC==0:
         nGoC = int( density * 1e-9*x*y*z  ) # units um->mm
@@ -305,14 +305,14 @@ def connect_inputs( maxn=0, frac= 0, density=6000, volume=[350,350,80], mult=0, 
     # prune distal pairs
     if connDist[0] > 0:
     	# if connDist is [x,y,z], do separate comparision for each axis
-    	if len(connDist)==3:
-    		for jj in range(3):
-    			if connDist[jj]<=0:
-    				connDist[jj]=1e9
-    		conn_pairs = conn_pairs[:,[((abs(Inp_pos[conn_pairs[0,jj],0]- GoC_pos[conn_pairs[1,jj],0])<connDist[0])& (abs(Inp_pos[conn_pairs[0,jj],1]- GoC_pos[conn_pairs[1,jj],1])<connDist[1]) & (abs(Inp_pos[conn_pairs[0,jj],2]- GoC_pos[conn_pairs[1,jj],2])<connDist[2])) for jj in range(conn_pairs.shape[1])]]
+        if len(connDist)==3:
+            for jj in range(3):
+            	if connDist[jj]<=0:
+            		connDist[jj]=1e9
+            conn_pairs = conn_pairs[:,[((abs(Inp_pos[conn_pairs[0,jj],0]- GoC_pos[conn_pairs[1,jj],0])<connDist[0])& (abs(Inp_pos[conn_pairs[0,jj],1]- GoC_pos[conn_pairs[1,jj],1])<connDist[1]) & (abs(Inp_pos[conn_pairs[0,jj],2]- GoC_pos[conn_pairs[1,jj],2])<connDist[2])) for jj in range(conn_pairs.shape[1])]]
         else:
             # if connDist is scalar, compare net distance
-    		conn_pairs = conn_pairs[:,[(np.power(Inp_pos[conn_pairs[0,jj],0]- GoC_pos[conn_pairs[1,jj],0],2) + np.power(Inp_pos[conn_pairs[0,jj],1]- GoC_pos[conn_pairs[1,jj],1],2) + np.power(Inp_pos[conn_pairs[0,jj],2]- GoC_pos[conn_pairs[1,jj],2],2))< connDist[0]**2 for jj in range(conn_pairs.shape[1])]]
+            conn_pairs = conn_pairs[:,[(np.power(Inp_pos[conn_pairs[0,jj],0]- GoC_pos[conn_pairs[1,jj],0],2) + np.power(Inp_pos[conn_pairs[0,jj],1]- GoC_pos[conn_pairs[1,jj],1],2) + np.power(Inp_pos[conn_pairs[0,jj],2]- GoC_pos[conn_pairs[1,jj],2],2))< connDist[0]**2 for jj in range(conn_pairs.shape[1])]]
 
     ### --- to add code for weight
     conn_wt =  get_MF_GoC_synaptic_weights( conn_pairs, Inp_pos, GoC_pos, 'mult', conn_wt=connWeight )
