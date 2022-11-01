@@ -20,6 +20,6 @@ jobs:
 
     - name: Test single cell
       run: |
-        cd GoCModel_Basic/Network
+        cd Network
         python simulate_one_cell.py
 
