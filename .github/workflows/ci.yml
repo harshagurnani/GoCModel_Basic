@@ -25,6 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install scipy
+        if [[  ${{ matrix.python-version }} == "2.7" ]]; then pip install pyneuroml==0.5.20; else pip install pyneuroml ; fi
         pip install pyneuroml
 
 
@@ -36,5 +37,6 @@ jobs:
 
     - name: Test simulate_one_cell_write_spike
       run: |
+        cd Network
         python simulate_one_cell_write_spike.py
         ls -alth
