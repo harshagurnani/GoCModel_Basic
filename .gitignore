@@ -9,3 +9,4 @@ x86_64
 /Network/LEMS_sim_OneGoC_GoC.xml
 /Network/LEMS_sim_OneGoC_GoC_nrn.py
 /Network/*.dat
+/Network/*_nrn.py

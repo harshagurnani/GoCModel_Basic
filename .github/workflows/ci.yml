@@ -28,16 +28,17 @@ jobs:
         if [[  ${{ matrix.python-version }} == "2.7" ]]; then pip install pyneuroml==0.5.20; else pip install pyneuroml ; fi
 
         pip install neuron
+        which nrniv 
 
 
     - name: Test simulate_one_cell
       run: |
         cd Network
-        python simulate_one_cell.py -run
+        python simulate_one_cell.py
         ls -alth
 
     - name: Test simulate_one_cell_write_spike
       run: |
         cd Network
-        #python simulate_one_cell_write_spike.py
-        #ls -alth
+        python simulate_one_cell_write_spike.py
+        ls -alth
