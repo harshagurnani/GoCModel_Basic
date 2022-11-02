@@ -4,3 +4,8 @@
 *.mod
 *.hoc
 Cells\Golgi*00*.nml
+x86_64
+/Data_OneGoC/*dat
+/Network/LEMS_sim_OneGoC_GoC.xml
+/Network/LEMS_sim_OneGoC_GoC_nrn.py
+/Network/*.dat
