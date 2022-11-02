@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ 2.7, 3.9 ]
+        python-version: [ 3.9 ]
 
     steps:
     - uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
 
     - name: Test simulate_one_cell
       run: |
-      
+
         export NEURON_HOME=$pythonLocation # to ensure pyneuroml can run neuron
         cd Network
         python simulate_one_cell.py -run
