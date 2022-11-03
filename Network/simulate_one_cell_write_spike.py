@@ -100,5 +100,7 @@ def create_LEMS_sim( duration=1000, dt=0.025, goc_path='../Cells/Golgi/', goc_fi
 if __name__ =='__main__':
 	runid=0
 
-	res = create_LEMS_sim( duration = 2000, dt=0.025, seed = 123)
+	run = '-run' in sys.argv
+
+	res = create_LEMS_sim( duration = 2000, dt=0.025, seed = 123, run = run)
 	print(res)

@@ -2,7 +2,7 @@
     
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v0.3.15 (libNeuroML v0.2.47)
+        This LEMS file has been automatically generated using PyNeuroML v0.7.3 (libNeuroML v0.4.1)
 
      -->
     
@@ -34,7 +34,7 @@
     <Include file="../../Mechanisms/Golgi_CALC.nml"/>
     <Include file="../../Mechanisms/Golgi_CALC2.nml"/>
    
-    <Simulation id="sim_V2_OneGoC_Golgi_reduced_twoCaPools_2CaPools" length="1000ms" step="0.001ms" target="OneGoC_Golgi_reduced_twoCaPools_2CaPools" seed="100">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="sim_V2_OneGoC_Golgi_reduced_twoCaPools_2CaPools" length="2000ms" step="0.025ms" target="OneGoC_Golgi_reduced_twoCaPools_2CaPools" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
         
         <OutputFile id="Volts_file" fileName="../Data_OneGoC/sim_V2_OneGoC_Golgi_reduced_twoCaPools_2CaPools.v.dat">
             <OutputColumn id="0" quantity="Golgi_10comp_all_channels_twoCaPoolsPop/0/Golgi_10comp_all_channels_twoCaPools/v"/> 

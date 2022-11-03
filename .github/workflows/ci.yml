@@ -1,0 +1,53 @@
+name: Test model generation
+
+on:
+  push:
+    branches: [ main, development ]
+  pull_request:
+    branches: [ main, development ]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ 3.9 ]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        pip install scipy
+        if [[  ${{ matrix.python-version }} == "2.7" ]]; \
+             then pip install pyneuroml==0.5.20; \
+             else pip install git+https://github.com/NeuroML/pyNeuroML.git@experimental; \
+        fi
+
+        pip install neuron
+        which nrniv # print location of NEURON
+
+
+    - name: Test simulate_one_cell.py & simulate_one_cell_write_spike.py
+      run: |
+
+        export NEURON_HOME=$pythonLocation # to ensure pyneuroml can run neuron
+        cd Network
+        python simulate_one_cell.py -run
+        ls -alth
+
+        python simulate_one_cell_write_spike.py -run
+        ls -alth
+
+    - name: Test other python scripts
+      run: |
+
+        cd PythonUtils
+        python initialize_cell_params.py
+        ls -alth
