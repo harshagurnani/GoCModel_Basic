@@ -25,13 +25,16 @@ jobs:
     - name: Install dependencies
       run: |
         pip install scipy
-        if [[  ${{ matrix.python-version }} == "2.7" ]]; then pip install pyneuroml==0.5.20; else pip install git+https://github.com/NeuroML/pyNeuroML.git@experimental ; fi
+        if [[  ${{ matrix.python-version }} == "2.7" ]]; \
+             then pip install pyneuroml==0.5.20; \
+             else pip install git+https://github.com/NeuroML/pyNeuroML.git@experimental; \
+        fi
 
         pip install neuron
-        which nrniv
+        which nrniv # print location of NEURON
 
 
-    - name: Test simulate_one_cell
+    - name: Test simulate_one_cell.py & simulate_one_cell_write_spike.py
       run: |
 
         export NEURON_HOME=$pythonLocation # to ensure pyneuroml can run neuron
@@ -39,10 +42,12 @@ jobs:
         python simulate_one_cell.py -run
         ls -alth
 
-    - name: Test simulate_one_cell_write_spike
+        python simulate_one_cell_write_spike.py -run
+        ls -alth
+
+    - name: Test other python scripts
       run: |
 
-        export NEURON_HOME=$pythonLocation # to ensure pyneuroml can run neuron
-        cd Network
-        python simulate_one_cell_write_spike.py -run
+        cd PythonUtils
+        python initialize_cell_params.py
         ls -alth
