@@ -37,7 +37,7 @@ To construct new GoC files using one of the morphologies and different parameter
 
 ## Requirements
 
-- python2.7
+- python2.7 ---> Now supported for Python 3.6
 - NeuroML and pyNeuroML python libraries
 - jvm
 
